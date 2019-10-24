@@ -45,24 +45,8 @@ def apply_coupons(cart, coupons)
   #add updated items to cart
   
   
-  coupons.each do |coupon|
-    coupon_about = find_item_by_name_in_collection(coupon[:item], cart) #if coupon item exists in cart
-    coupon_about_w_coupon = find_item_by_name_in_collection(coupon[:item] + "W/COUPON", cart) #if cart already contains coupon
-      if coupon_about[:count] && coupon_about_w_coupon >= coupon[:num]   #if cart contains coupon item and the coupon num is larger than the current amount && contains item w/ coupon
-        coupon_about_w_coupon[:count] += coupon[:num]
-        coupon_about[:count] -= coupon[:num]
-      else if coupon_about[:count] && coupon_about >= coupon[:num]
-        cart.push({
-          :item => coupon[:item] + "W/COUPON",
-          :cost => (coupon[:cost] / coupon[:num]).round(2),
-          :clearance => coupon[:clearance],
-          :count => coupon[:num]
-        })
-        coupon_about[:count] -= coupon[:num]
-      end
-    end
-  cart
-end
+  
+  
 
 def apply_clearance(cart)
   # Consult README for inputs and outputs
