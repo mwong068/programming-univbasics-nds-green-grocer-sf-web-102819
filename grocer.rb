@@ -60,10 +60,7 @@ def apply_coupons(cart, coupons)
         })
         coupon_about[:count] -= coupon[:num]
       end
-      
-  
-  
-  
+    end
   cart
 end
 
