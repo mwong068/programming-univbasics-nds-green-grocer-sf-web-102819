@@ -53,7 +53,7 @@ def apply_coupons(cart, coupons)
         coupon_about[:count] -= coupon[:num]
       else if coupon_about[:count] && coupon_about >= coupon[:num]
         cart.push( {
-          
+          :item => 
         })
         
   
