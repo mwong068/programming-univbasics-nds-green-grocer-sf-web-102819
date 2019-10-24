@@ -54,7 +54,7 @@ def apply_coupons(cart, coupons)
       else if coupon_about[:count] && coupon_about >= coupon[:num]
         cart.push( {
           :item => coupon[:item] + "w/coupon",
-          :price => coupon[:price] / coupon[:count],
+          :price => (coupon[:price] / coupon[:count]).round(2),
           :clearance => coupon[:clearance],
           :count => coupon[:count]
         })
