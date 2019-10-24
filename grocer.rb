@@ -44,7 +44,27 @@ def apply_coupons(cart, coupons)
   #if coupon items are there/true => count the number of existing items in cart => divide that number by coupon amount
   #add updated items to cart
   
-  
+  coupons.each do |coupon|
+    item_info = find_item_by_name_in_collection(coupon[:item], cart)
+         item_w_coupon = find_item_by_name_in_collection(coupon[:item]+" W/COUPON", cart)
+    if item_w_coupon and item_info[:count] >= coupon[:num]
+           item_w_coupon[:count] += coupon[:num]
+           item_info[:count] -= coupon[:num]
+         elsif item_info and item_info[:count] >= coupon[:num]
+      cart << {
+        :item => coupon[:item] + " W/COUPON",
+        :price => (coupon[:cost]/coupon[:num]).round(2),
+        :clearance => item_info[:clearance],
+        :count => coupon[:num]
+      }
+      item_info[:count] -= coupon[:num]
+    end #if
+  end #each
+  #cart.delete_if{|item_info| item_info[:count] <= 0}
+  cart
+end
+
+
   
   
 
