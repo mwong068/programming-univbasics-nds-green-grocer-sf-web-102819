@@ -39,6 +39,12 @@ def apply_coupons(cart, coupons)
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
+  #iterate through coupon
+  #iterate through cart to check if coupon items exists
+  #if coupon items are there/true => count the number of existing items in cart => divide that number by coupon amount
+  #add updated items to cart
+  
+  
   coupons.each do |coupon_thing|
     coupony = find_item_by_name_in_collection(coupon_thing[:item], cart)
     coupony_w_coupon = find_item_by_name_in_collection(coupon_thing[:item] + "w/coupon", cart)
