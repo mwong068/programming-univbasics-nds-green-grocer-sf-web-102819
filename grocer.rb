@@ -45,11 +45,11 @@ def apply_coupons(cart, coupons)
   #add updated items to cart
   
   
-  coupons.each do |coupon_thing|
-    coupony = find_item_by_name_in_collection(coupon_thing[:item], cart)
-    coupony_w_coupon = find_item_by_name_in_collection(coupon_thing[:item] + "w/coupon", cart)
-      if coupony[:count] && coupony_w_coupon >= coupon_thing[:num]   #if cart contains coupon item
-        coupony_w_coupon[:count] += coupon_thing[:num]
+  coupons.each do |coupon|
+    coupon_about = find_item_by_name_in_collection(coupon[:item], cart)
+    coupon_about_w_coupon = find_item_by_name_in_collection(coupon[:item] + "w/coupon", cart)
+      if coupon_about[:count] && coupon_about_w_coupon >= coupon[:num]   #if cart contains coupon item
+        coupon_about_w_coupon[:count] += coupon[:num]
         
   
   
