@@ -51,6 +51,7 @@ def apply_coupons(cart, coupons)
       if coupon_about[:count] && coupon_about_w_coupon >= coupon[:num]   #if cart contains coupon item and the coupon num is larger than the current amount && contains item w/ coupon
         coupon_about_w_coupon[:count] += coupon[:num]
         coupon_about[:count] -= coupon[:num]
+      else if 
         
   
   
