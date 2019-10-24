@@ -46,8 +46,8 @@ def apply_coupons(cart, coupons)
   
   
   coupons.each do |coupon|
-    coupon_about = find_item_by_name_in_collection(coupon[:item], cart) #if coupon exists in cart
-    coupon_about_w_coupon = find_item_by_name_in_collection(coupon[:item] + "w/coupon", cart)
+    coupon_about = find_item_by_name_in_collection(coupon[:item], cart) #if coupon item exists in cart
+    coupon_about_w_coupon = find_item_by_name_in_collection(coupon[:item] + "w/coupon", cart) #if cart already contains coupon
       if coupon_about[:count] && coupon_about_w_coupon >= coupon[:num]   #if cart contains coupon item
         coupon_about_w_coupon[:count] += coupon[:num]
         
